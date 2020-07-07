@@ -1,0 +1,33 @@
+<style>
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+</div>
+
+<p>
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
+</p>
+
+<h1>Your Plans</h1>
+
+<% @plans.each do |plan| %>
+    <ul>
+        <li>Your (<%= Attendee.last.name %>'s) Plan #<%= link_to plan.id, plan_path(plan), method: :get %> for Show #<%= link_to plan.show.id, show_path(plan.show.id), method: :get %> at <%= plan.location.color %> of
+        <%= plan.show.artist.name %> on <%= plan.show.stage.name %> Stage at
+        <%= plan.show.date_time.strftime("%B %e, %l:%M %p") %> ---> <%= link_to "Cancel Plan", plan_path(plan), method: :delete %> | <%= link_to "Change Plan", plan_path(plan), method: :get %><br></li>
+    </ul>
+<% end %>

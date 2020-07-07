@@ -1,0 +1,158 @@
+<style>
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* border: 3px solid black;  */
+    }
+
+    .button_to {
+        background-color: white;
+        height: 175px;
+        padding: 1px;
+        /* border: 1.2px solid black;
+        outline: 3px solid black; */
+    }
+
+    <% fill_color = @plan.location.color %>
+
+    .selected_fill {
+        background-color: <%= fill_color %>;
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    .unselected_fill_1, .unselected_fill_2, .unselected_fill_3, .unselected_fill_4, .unselected_fill_5, .unselected_fill_6, .unselected_fill_7, .unselected_fill_8, .unselected_fill_9  {
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    .unselected_fill_1:hover {
+        background-color: Red;
+        box-shadow: 0 0 50px Red;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_2:hover {
+        background-color: Aqua;
+        box-shadow: 0 0 50px Aqua;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_3:hover {
+        background-color: SaddleBrown;
+        box-shadow: 0 0 50px SaddleBrown;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_4:hover {
+        background-color: DarkGreen;
+        box-shadow: 0 0 50px DarkGreen;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_5:hover {
+        background-color: Yellow;
+        box-shadow: 0 0 50px Yellow;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_6:hover {
+        background-color: Purple;
+        box-shadow: 0 0 50px Purple;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_7:hover {
+        background-color: DarkBlue;
+        box-shadow: 0 0 50px DarkBlue;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_8:hover {
+        background-color: DeepPink;
+        box-shadow: 0 0 50px DeepPink;
+        outline: none;
+        cursor: cell;
+    }
+
+    .unselected_fill_9:hover {
+        background-color: DarkOrange;
+        box-shadow: 0 0 50px DarkOrange;
+        outline: none;
+        cursor: cell;
+    }
+
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+    <%= @plan.attendee.name %>'s Plan #<%= link_to @plan.id, plan_path(@plan), method: :get %> for Show #<%= link_to @plan.show.id, show_path(@plan.show.id), method: :get %> at <%= @plan.location.color %> of <%= @plan.show.artist.name %> on <%= @plan.show.stage.name %> Stage at <%= @plan.show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
+</div>
+
+<div class="grid">
+    <% if fill_color == "Red"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Red").id}), method: :put, class: "unselected_fill_1" %>
+    <% end %>
+    <% if fill_color == "Aqua"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Aqua").id}), method: :put, class: "unselected_fill_2" %>
+    <% end %>
+    <% if fill_color == "SaddleBrown"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "SaddleBrown").id}), method: :put, class: "unselected_fill_3" %>
+    <% end %>
+    <% if fill_color == "DarkGreen"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkGreen").id}), method: :put, class: "unselected_fill_4" %>
+    <% end %>
+    <% if fill_color == "Yellow"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Yellow").id}), method: :put, class: "unselected_fill_5" %>
+    <% end %>
+    <% if fill_color == "Purple"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Purple").id}), method: :put, class: "unselected_fill_6" %>
+    <% end %>
+    <% if fill_color == "DarkBlue"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkBlue").id}), method: :put, class: "unselected_fill_7" %>
+    <% end %>
+    <% if fill_color == "DeepPink"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DeepPink").id}), method: :put, class: "unselected_fill_8" %>
+    <% end %>
+    <% if fill_color == "DarkOrange"  %>
+        <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
+    <% else %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkOrange").id}), method: :put, class: "unselected_fill_9" %>
+    <% end %>
+</div> <br>

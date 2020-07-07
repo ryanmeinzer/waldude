@@ -1,0 +1,241 @@
+<style>
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        /* border: 3px solid black; */
+    }
+
+    .button_to {
+        /* background-color: white; */
+        height: 175px;
+        padding: 5px;
+        /* border: 1.2px solid black;
+        outline: 3px solid black; */
+    }
+    
+    .default_fill {
+        /* background-color: white; */
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    <% fill_1_opacity = @show.locations.where(color: "Red").count * 0.1 %>
+
+    .fill_1 {
+        background-color: Red;
+        opacity: <%= fill_1_opacity %>;
+        height: 100%;
+        width: 100%;
+        border: none;
+        cursor: zoom-in;
+    }
+
+    .fill_1:hover {
+        box-shadow: 0 0 50px Red;
+        opacity: <%= fill_1_opacity %>;
+        outline: none;
+    }
+
+    <% fill_2_opacity = @show.locations.where(color: "Aqua").count * 0.1 %>
+
+    .fill_2 {
+    background-color: aqua;
+    opacity: <%= fill_2_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_2:hover {
+        box-shadow: 0 0 50px aqua;
+        opacity: <%= fill_2_opacity %>;
+        outline: none;
+    }
+
+    <% fill_3_opacity = @show.locations.where(color: "SaddleBrown").count * 0.1 %>
+
+    .fill_3 {
+    background-color: SaddleBrown;
+    opacity: <%= fill_3_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_3:hover {
+        box-shadow: 0 0 50px SaddleBrown;
+        opacity: <%= fill_3_opacity %>;
+        outline: none;
+    }
+
+    <% fill_4_opacity = @show.locations.where(color: "DarkGreen").count * 0.1 %>
+
+    .fill_4 {
+    background-color: DarkGreen;
+    opacity: <%= fill_4_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_4:hover {
+        box-shadow: 0 0 50px DarkGreen;
+        opacity: <%= fill_4_opacity %>;
+        outline: none;
+    }
+
+    <% fill_5_opacity = @show.locations.where(color: "Yellow").count * 0.1 %>
+
+    .fill_5 {
+    background-color: Yellow;
+    opacity: <%= fill_5_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_5:hover {
+        box-shadow: 0 0 50px Yellow;
+        opacity: <%= fill_5_opacity %>;
+        outline: none;
+    }
+
+    <% fill_6_opacity = @show.locations.where(color: "Purple").count * 0.1 %>
+
+    .fill_6 {
+    background-color: Purple;
+    opacity: <%= fill_6_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_6:hover {
+        box-shadow: 0 0 50px Purple;
+        opacity: <%= fill_6_opacity %>;
+        outline: none;
+    }
+
+    <% fill_7_opacity = @show.locations.where(color: "DarkBlue").count * 0.1 %>
+
+    .fill_7 {
+    background-color: DarkBlue;
+    opacity: <%= fill_7_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_7:hover {
+        box-shadow: 0 0 50px DarkBlue;
+        opacity: <%= fill_7_opacity %>;
+        outline: none;
+    }
+
+    <% fill_8_opacity = @show.locations.where(color: "DeepPink").count * 0.1 %>
+
+    .fill_8 {
+    background-color: DeepPink;
+    opacity: <%= fill_8_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_8:hover {
+        box-shadow: 0 0 50px DeepPink;
+        opacity: <%= fill_8_opacity %>;
+        outline: none;
+    }
+
+    <% fill_9_opacity = @show.locations.where(color: "DarkOrange").count * 0.1 %>
+
+    .fill_9 {
+    background-color: DarkOrange;
+    opacity: <%= fill_9_opacity %>;
+    height: 100%;
+    width: 100%;
+    border: none;
+    cursor: zoom-in;
+    }
+
+    .fill_9:hover {
+        box-shadow: 0 0 50px DarkOrange;
+        opacity: <%= fill_9_opacity %>;
+        outline: none;
+    }
+
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+    Show #<%= link_to @show.id, show_path(@show), method: :get %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
+</div>
+
+<div class="grid">
+    <% if @show.locations.where(color: "Red").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Red").id), method: :get, class: "fill_1" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "Aqua").any?  %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Aqua").id), method: :get, class: "fill_2" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "SaddleBrown").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "SaddleBrown").id), method: :get, class: "fill_3" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "DarkGreen").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkGreen").id), method: :get, class: "fill_4" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "Yellow").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Yellow").id), method: :get, class: "fill_5" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true  %>
+    <% end %>
+    <% if @show.locations.where(color: "Purple").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Purple").id), method: :get, class: "fill_6" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "DarkBlue").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkBlue").id), method: :get, class: "fill_7" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "DeepPink").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DeepPink").id), method: :get, class: "fill_8" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+    <% if @show.locations.where(color: "DarkOrange").any? %>
+        <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkOrange").id), method: :get, class: "fill_9" %>
+    <% else %>
+        <%= button_to "", show_path(@show), method: :get, class: "default_fill", disabled: true %>
+    <% end %>
+</div> <br>

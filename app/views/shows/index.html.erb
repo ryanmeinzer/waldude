@@ -1,0 +1,25 @@
+<style>
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+</div>
+
+<h1>Shows</h1>
+
+<% @shows.each do |show| %>
+<ul>
+    <li>Show #<%= link_to show.id, show_path(show), method: :get %> of <%= show.artist.name  %> on <%= show.stage.name %> Stage at <%= show.date_time.strftime("%B %e, %l:%M %p")%></li>
+</ul>
+<% end %>
+

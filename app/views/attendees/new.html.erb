@@ -1,0 +1,32 @@
+<style>
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+</div>
+
+<h1>Find more of your friends by the brightness of the show's location colors. </h1>
+<h1>Plan where you'll be so your friends can find you at the show.</h1>
+
+<p>
+    <% if flash[:errors] %>
+    <%= flash[:errors] %>
+    <% end %>
+</p>
+
+<div align="center">
+<%= form_for @attendee do |f| %>
+<%= f.label :name, 'Name' %>
+<br><%= f.text_field :name %><br>
+<br><%= f.submit "Let's Go!" %>
+<% end %>
+</div>

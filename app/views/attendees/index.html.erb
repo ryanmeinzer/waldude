@@ -1,0 +1,37 @@
+<style>
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-color: black;
+        color: white;
+    }
+
+    <% fill_color = Location.find(params[:location_id]).color %>
+
+    .selected_fill:hover {
+        background-color: <%= fill_color %>;
+        /* height: 50px;
+        width: 150px; */
+        color: white;
+        cursor: cell;
+    }
+
+</style>
+
+<div align="center">
+    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+    Attendees of Show #<%= link_to @show.id, show_path(@show), method: :get %> at <%= Location.find(params[:location_id]).color %> of <%= @show.artist.name  %> on
+    <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
+    <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
+</div>
+
+<% @attendees.each do |attendee| %>
+    <ul>
+        <li><%= attendee.attendee.name %></li>
+    </ul>
+<% end %>
+

@@ -8,6 +8,20 @@
         background-color: black;
         color: white;
     }
+
+    .signup_button {
+        height: 35px;
+        width: 100px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .signup_button:hover {
+        color: white;
+        background-color: red;
+        background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    }
+
 </style>
 
 <div align="center">
@@ -27,6 +41,6 @@
 <%= form_for @attendee do |f| %>
 <%= f.label :name, 'Name' %>
 <br><%= f.text_field :name %><br>
-<br><%= f.submit "Let's Go!" %>
+<br><%= f.submit "Let's Go!", class: "signup_button" %>
 <% end %>
 </div>

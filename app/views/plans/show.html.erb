@@ -111,7 +111,7 @@
 <div align="center">
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
     <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
-    <%= @plan.attendee.name %>'s Plan #<%= link_to @plan.id, plan_path(@plan), method: :get %> for Show #<%= link_to @plan.show.id, show_path(@plan.show.id), method: :get %> at <%= @plan.location.color %> of <%= @plan.show.artist.name %> on <%= @plan.show.stage.name %> Stage at <%= @plan.show.date_time.strftime("%B %e, %l:%M %p") %>
+    <%= @plan.attendee.name %>'s Plan #<%= link_to @plan.id, plan_path(@plan), method: :get %> for Show #<%= link_to @plan.show.id, show_path(@plan.show.id), method: :get %> at <%= @plan.location.name %> of <%= @plan.show.artist.name %> on <%= @plan.show.stage.name %> Stage at <%= @plan.show.date_time.strftime("%B %e, %l:%M %p") %>
 </div>
 <br>
 <div align="center" class="front_stage">FRONT STAGE</div>

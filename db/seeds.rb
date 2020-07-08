@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 Artist.destroy_all
 Show.destroy_all 
 Stage.destroy_all 
@@ -22,7 +24,7 @@ Artist.create(name: "Talib Kweli")
 Artist.create(name: "Smashing Pumkins")
 Artist.create(name: "Radiohead")
 Artist.create(name: "Wu Tang Clan")
-Artist.create(name: "Stone Temple Pilot")
+Artist.create(name: "Stone Temple Pilots")
 
 Stage.create(name: "Woogie")
 Stage.create(name: "Stacks")
@@ -30,31 +32,24 @@ Stage.create(name: "Lightning")
 Stage.create(name: "Thunder")
 Stage.create(name: "Beacon")
 
-Attendee.create(name: "Mike")
-Attendee.create(name: "Susy") 
-Attendee.create(name: "Mary") 
-Attendee.create(name: "Billy") 
-Attendee.create(name: "Milly") 
-Attendee.create(name: "Cindy") 
-Attendee.create(name: "Robin") 
-Attendee.create(name: "Dave") 
-Attendee.create(name: "Amanda") 
-Attendee.create(name: "Joe") 
+100.times do
+    Attendee.create(name: Faker::Name.unique.first_name)
+end
 
-Location.create(color: "Red")
-Location.create(color: "Aqua")
-Location.create(color: "SaddleBrown")
-Location.create(color: "DarkGreen")
-Location.create(color: "Yellow")
-Location.create(color: "Purple")
-Location.create(color: "DarkBlue")
-Location.create(color: "DeepPink")
-Location.create(color: "DarkOrange")
+Location.create(color: "Red", name: "Red")
+Location.create(color: "Aqua", name: "Aqua")
+Location.create(color: "SaddleBrown", name: "Brown")
+Location.create(color: "DarkGreen", name: "Green")
+Location.create(color: "Yellow", name: "Yellow")
+Location.create(color: "Purple", name: "Purple")
+Location.create(color: "DarkBlue", name: "Blue")
+Location.create(color: "DeepPink", name: "Pink")
+Location.create(color: "DarkOrange", name: "Orange")
 
-10.times do
+15.times do
     Show.create(artist_id: Artist.all.sample.id, stage_id: Stage.all.sample.id, date_time: DateTime.now + (rand * 21))
 end
 
-150.times do
+500.times do
     Plan.create(attendee_id: Attendee.all.sample.id, show_id: Show.all.sample.id, location_id: Location.all.sample.id)
 end

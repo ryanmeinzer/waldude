@@ -22,7 +22,7 @@
 </style>
 
 <div align="center">
-    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
     <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
     Attendees of Show #<%= link_to @show.id, show_path(@show), method: :get %> at <%= Location.find(params[:location_id]).color %> of <%= @show.artist.name  %> on
     <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>

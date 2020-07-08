@@ -18,7 +18,7 @@
 
     .button_to {
         /* background-color: white; */
-        height: 175px;
+        height: 165px;
         padding: 5px;
         /* border: 1.2px solid black;
         outline: 3px solid black; */
@@ -184,13 +184,19 @@
         outline: none;
     }
 
+    .front_stage {
+        color: lightgray;
+    }
+
 </style>
 
 <div align="center">
-    <img src="/assets/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
     <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
-    Show #<%= link_to @show.id, show_path(@show), method: :get %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
+    Show #<%= link_to @show.id, show_path(@show), method: :get %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %>
 </div>
+<br>
+<div align="center" class="front_stage">FRONT STAGE</div>
 
 <div class="grid">
     <% if @show.locations.where(color: "Red").any? %>

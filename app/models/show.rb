@@ -4,4 +4,21 @@ class Show < ApplicationRecord
     belongs_to :stage
     has_many :attendees, through: :plans
     has_many :locations, through: :plans
+
+    def artist_name=(name)
+        self.artist = Artist.find_or_create_by(name: name)
+    end
+    
+    def artist_name
+        self.artist ? self.artist.name : nil
+    end
+
+    def stage_name=(name)
+        self.stage = Stage.find_or_create_by(name: name)
+    end
+    
+    def stage_name
+        self.stage ? self.stage.name : nil
+    end
+
 end

@@ -12,10 +12,35 @@
 
 <div align="center">
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
-    <h2><%= link_to "Find", shows_path, method: :get %> or <%= link_to "Plan", plans_path, method: :get %></h2>
+    <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 </div>
 
 <h1>Shows</h1>
+
+<%= form_for @show do |f| %>
+
+    <%= f.label :artist_name, 'Artist Name' %>
+    <%= f.text_field :artist_name, list: "artists_autocomplete" %>
+    <datalist id="artists_autocomplete">
+        <% Artist.all.each do |artist| %>
+        <option value="<%= artist.name %>">
+            <% end %>
+    </datalist>
+
+    <%= f.label :stage_name, 'Stage Name' %>
+    <%= f.text_field :stage_name, list: "stages_autocomplete" %>
+    <datalist id="stages_autocomplete">
+        <% Stage.all.each do |stage| %>
+        <option value="<%= stage.name %>">
+            <% end %>
+    </datalist>
+
+    <%= f.label :date_time, 'Date & Time' %>
+    <%= f.datetime_field :date_time %>
+
+    <%= f.submit "Create Show" %>
+
+<% end %>
 
 <% @shows.each do |show| %>
 <ul>

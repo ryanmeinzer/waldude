@@ -5,6 +5,10 @@ class Show < ApplicationRecord
     has_many :attendees, through: :plans
     has_many :locations, through: :plans
 
+    validates :artist_name, presence: true
+    validates :stage_name, presence: true
+    validates :date_time, presence: true
+
     def artist_name=(name)
         self.artist = Artist.find_or_create_by(name: name)
     end

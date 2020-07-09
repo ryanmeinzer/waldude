@@ -11,7 +11,12 @@ class ShowsController < ApplicationController
 
     def create
         @show = Show.create(show_params)
-        redirect_to show_path(@show)
+        if @show.valid?
+            redirect_to show_path(@show)
+        else
+            flash[:errors] = @show.errors.full_messages
+            redirect_to shows_path
+        end
     end
 
     def show

@@ -15,6 +15,12 @@
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 </div>
 
+<p>
+<% if flash[:errors] %>
+<%= flash[:errors] %>
+<% end %>
+</p>
+
 <h1>Shows</h1>
 
 <%= form_for @show do |f| %>

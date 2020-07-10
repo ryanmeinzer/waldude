@@ -3,7 +3,7 @@ class AttendeesController < ApplicationController
     def index
         if params[:show_id]
             @show = Show.find(params[:show_id])
-            @attendees = @show.plans.where(location_id: params[:location_id])
+            @plans = @show.plans.where(location_id: params[:location_id])
             # @attendees = @plans.each do |plan| plan.attendee.name end
         else
             @attendees = Attendee.all

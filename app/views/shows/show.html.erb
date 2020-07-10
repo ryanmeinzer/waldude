@@ -18,7 +18,7 @@
 
     .button_to {
         /* background-color: white; */
-        height: 165px;
+        height: 120px;
         padding: 5px;
         /* border: 1.2px solid black;
         outline: 3px solid black; */
@@ -99,6 +99,7 @@
 
     .fill_1 {
         background-color: Red;
+        /* color: Red; */
         opacity: <%= fill_1_opacity %>;
         height: 100%;
         width: 100%;
@@ -108,6 +109,7 @@
 
     .fill_1:hover {
         box-shadow: 0 0 50px Red;
+        /* color: white; */
         opacity: <%= fill_1_opacity %>;
         outline: none;
     }
@@ -116,6 +118,7 @@
 
     .fill_2 {
     background-color: aqua;
+    /* color: aqua; */
     opacity: <%= fill_2_opacity %>;
     height: 100%;
     width: 100%;
@@ -125,6 +128,7 @@
 
     .fill_2:hover {
         box-shadow: 0 0 50px aqua;
+        /* color: white; */
         opacity: <%= fill_2_opacity %>;
         outline: none;
     }
@@ -133,6 +137,7 @@
 
     .fill_3 {
     background-color: SaddleBrown;
+    /* color: SaddleBrown; */
     opacity: <%= fill_3_opacity %>;
     height: 100%;
     width: 100%;
@@ -142,6 +147,7 @@
 
     .fill_3:hover {
         box-shadow: 0 0 50px SaddleBrown;
+        /* color: white; */
         opacity: <%= fill_3_opacity %>;
         outline: none;
     }
@@ -150,6 +156,7 @@
 
     .fill_4 {
     background-color: DarkGreen;
+    /* color: DarkGreen; */
     opacity: <%= fill_4_opacity %>;
     height: 100%;
     width: 100%;
@@ -159,6 +166,7 @@
 
     .fill_4:hover {
         box-shadow: 0 0 50px DarkGreen;
+        /* color: white; */
         opacity: <%= fill_4_opacity %>;
         outline: none;
     }
@@ -167,6 +175,7 @@
 
     .fill_5 {
     background-color: Yellow;
+    /* color: Yellow; */
     opacity: <%= fill_5_opacity %>;
     height: 100%;
     width: 100%;
@@ -176,6 +185,7 @@
 
     .fill_5:hover {
         box-shadow: 0 0 50px Yellow;
+        /* color: white; */
         opacity: <%= fill_5_opacity %>;
         outline: none;
     }
@@ -184,6 +194,7 @@
 
     .fill_6 {
     background-color: Purple;
+    /* color: Purple; */
     opacity: <%= fill_6_opacity %>;
     height: 100%;
     width: 100%;
@@ -193,6 +204,7 @@
 
     .fill_6:hover {
         box-shadow: 0 0 50px Purple;
+        /* color: white; */
         opacity: <%= fill_6_opacity %>;
         outline: none;
     }
@@ -201,6 +213,7 @@
 
     .fill_7 {
     background-color: DarkBlue;
+    /* color: DarkBlue; */
     opacity: <%= fill_7_opacity %>;
     height: 100%;
     width: 100%;
@@ -210,6 +223,7 @@
 
     .fill_7:hover {
         box-shadow: 0 0 50px DarkBlue;
+        /* color: white; */
         opacity: <%= fill_7_opacity %>;
         outline: none;
     }
@@ -218,6 +232,7 @@
 
     .fill_8 {
     background-color: DeepPink;
+    /* color: DeepPink; */
     opacity: <%= fill_8_opacity %>;
     height: 100%;
     width: 100%;
@@ -227,6 +242,7 @@
 
     .fill_8:hover {
         box-shadow: 0 0 50px DeepPink;
+        /* color: white; */
         opacity: <%= fill_8_opacity %>;
         outline: none;
     }
@@ -235,6 +251,7 @@
 
     .fill_9 {
     background-color: DarkOrange;
+    /* color: DarkOrange; */
     opacity: <%= fill_9_opacity %>;
     height: 100%;
     width: 100%;
@@ -244,6 +261,7 @@
 
     .fill_9:hover {
         box-shadow: 0 0 50px DarkOrange;
+        /* color: white; */
         opacity: <%= fill_9_opacity %>;
         outline: none;
     }
@@ -255,7 +273,7 @@
 </style>
 
 <div align="center">
-    <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="250" background-color="transparent">
+    <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="210" background-color="transparent">
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
     Show #<%= link_to @show.id, show_path(@show), method: :get %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %>
 </div>
@@ -274,7 +292,7 @@
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Red").id}), method: :post, class: "unselected_fill_1" %>
     <% end %>
-    <% if @show.locations.where(color: "Aqua").any?  %>
+    <% if @show.locations.where(color: "Aqua").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Aqua").id), method: :get, class: "fill_2" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Aqua").id}), method: :post, class: "unselected_fill_2" %>

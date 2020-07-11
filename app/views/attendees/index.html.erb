@@ -27,9 +27,17 @@
     Attendees of Show #<%= link_to @show.id, show_path(@show), method: :get %> at <%= Location.find(params[:location_id]).name %> of <%= @show.artist.name  %> on
     <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
 
-    <% unless @plans.where(attendee_id: Attendee.last.id).exists? %>
+    <!-- if attendee has a plan at this show at this location -->
+    <% if @plans.where(attendee_id: Attendee.last.id).exists? %>
+        <!-- do nothing -->
+    <!-- if attendee has a plan at this show at another location -->
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}, id: 3581), method: :put, class: "selected_fill" %>
+    <!-- if attendee does not have a plan at this show -->
+    <% else %>
         <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
     <% end %>
+
 </div>
 
 <% @plans.each do |plan| %>
@@ -39,7 +47,6 @@
         <% else %>
             <li><%= plan.attendee.name %> </li>
         <% end %>
-        
     </ul>
 <% end %>
 

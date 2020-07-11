@@ -289,46 +289,64 @@
 <div class="grid">
     <% if @show.locations.where(color: "Red").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Red").id), method: :get, class: "fill_1" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Red").id}), method: :put, class: "unselected_fill_1" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Red").id}), method: :post, class: "unselected_fill_1" %>
     <% end %>
     <% if @show.locations.where(color: "Aqua").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Aqua").id), method: :get, class: "fill_2" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Aqua").id}), method: :put, class: "unselected_fill_2" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Aqua").id}), method: :post, class: "unselected_fill_2" %>
     <% end %>
     <% if @show.locations.where(color: "SaddleBrown").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "SaddleBrown").id), method: :get, class: "fill_3" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "SaddleBrown").id}), method: :put, class: "unselected_fill_3" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "SaddleBrown").id}), method: :post, class: "unselected_fill_3" %>
     <% end %>
     <% if @show.locations.where(color: "DarkGreen").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkGreen").id), method: :get, class: "fill_4" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkGreen").id}), method: :put, class: "unselected_fill_4" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkGreen").id}), method: :post, class: "unselected_fill_4" %>
     <% end %>
     <% if @show.locations.where(color: "Yellow").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Yellow").id), method: :get, class: "fill_5" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Yellow").id}), method: :put, class: "unselected_fill_5" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Yellow").id}), method: :post, class: "unselected_fill_5" %>
     <% end %>
     <% if @show.locations.where(color: "Purple").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "Purple").id), method: :get, class: "fill_6" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Purple").id}), method: :put, class: "unselected_fill_6" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "Purple").id}), method: :post, class: "unselected_fill_6" %>
     <% end %>
     <% if @show.locations.where(color: "DarkBlue").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkBlue").id), method: :get, class: "fill_7" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkBlue").id}), method: :put, class: "unselected_fill_7" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkBlue").id}), method: :post, class: "unselected_fill_7" %>
     <% end %>
     <% if @show.locations.where(color: "DeepPink").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DeepPink").id), method: :get, class: "fill_8" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DeepPink").id}), method: :put, class: "unselected_fill_8" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DeepPink").id}), method: :post, class: "unselected_fill_8" %>
     <% end %>
     <% if @show.locations.where(color: "DarkOrange").any? %>
         <%= button_to "", show_location_attendees_path(@show.id, @show.locations.find_by(color: "DarkOrange").id), method: :get, class: "fill_9" %>
+    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
+        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkOrange").id}), method: :put, class: "unselected_fill_8" %>
     <% else %>
         <%= button_to "", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find_by(color: "DarkOrange").id}), method: :post, class: "unselected_fill_9" %>
     <% end %>

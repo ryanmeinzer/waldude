@@ -27,7 +27,14 @@ class PlansController < ApplicationController
     end
 
     def update
-        @plan = Plan.find(params[:id])
+        # if params[:plan_id]
+        #     @show = Show.find(params[:id])
+        #     @plan = @show.plans.find_by(attendee_id: Attendee.last.id)
+        # else
+            @show = Show.find(params[:plan][:show_id])
+            @plan = @show.plans.find_by(attendee_id: Attendee.last.id)
+        # end
+        # @plan = Plan.find(params[:id])
         @plan.update(plan_params)
         redirect_to plan_path(@plan)
     end
@@ -45,7 +52,7 @@ class PlansController < ApplicationController
     private
 
     def plan_params
-        params.require(:plan).permit(:attendee_id, :show_id, :location_id)
+        params.require(:plan).permit(:attendee_id, :show_id, :location_id, :plan_id)
     end
 
 end

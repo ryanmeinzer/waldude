@@ -32,7 +32,7 @@
         <!-- do nothing -->
     <!-- if attendee has a plan at this show at another location -->
     <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
-        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}, id: 3581), method: :put, class: "selected_fill" %>
+        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}, id: @show.plans.find_by(attendee_id: Attendee.last.id).id), method: :put, class: "selected_fill" %>
     <!-- if attendee does not have a plan at this show -->
     <% else %>
         <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>

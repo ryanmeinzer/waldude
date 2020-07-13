@@ -30,21 +30,21 @@
     <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %><br><br>
 
     <!-- if attendee has a plan at this show at this location -->
-    <% if @plans.where(attendee_id: Attendee.last.id).exists? %>
+    <% if @plans.where(attendee_id: session[:attendee_id]).exists? %>
         <!-- do nothing -->
     <!-- if attendee has a plan at this show at another location -->
-    <% elsif @show.plans.where(attendee_id: Attendee.last.id).exists? %>
-        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}, id: @show.plans.find_by(attendee_id: Attendee.last.id).id), method: :put, class: "selected_fill" %>
+    <% elsif @show.plans.where(attendee_id: session[:attendee_id]).exists? %>
+        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}, id: @show.plans.find_by(attendee_id: session[:attendee_id]).id), method: :put, class: "selected_fill" %>
     <!-- if attendee does not have a plan at this show -->
     <% else %>
-        <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: Attendee.last.id, show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
+        <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
     <% end %>
 
 </div>
 
 <% @plans.each do |plan| %>
     <ul>
-        <% if plan.attendee.name == Attendee.last.name %>
+        <% if plan.attendee.name == Attendee.find(session[:attendee_id]).name %>
             <li><%= plan.attendee.name %> (you)</li>
         <% else %>
             <li><%= plan.attendee.name %> </li>

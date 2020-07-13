@@ -4,7 +4,7 @@ class PlansController < ApplicationController
         if Attendee.last.plans.count == 0
             render 'new'
         else
-            @plans = Attendee.last.plans
+            @plans = Attendee.find(session[:attendee_id]).plans
         end
     end
 
@@ -32,7 +32,7 @@ class PlansController < ApplicationController
         #     @plan = @show.plans.find_by(attendee_id: Attendee.last.id)
         # else
             @show = Show.find(params[:plan][:show_id])
-            @plan = @show.plans.find_by(attendee_id: Attendee.last.id)
+            @plan = @show.plans.find_by(attendee_id: session[:attendee_id])
         # end
         # @plan = Plan.find(params[:id])
         @plan.update(plan_params)

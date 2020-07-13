@@ -27,7 +27,7 @@
 
 <% @plans.each do |plan| %>
     <ul>
-        <li>Your (<%= Attendee.last.name %>'s) Plan #<%= plan.id %> for Show #<%= plan.show.id %> at <%= plan.location.name %> of
+        <li>Your (<%= Attendee.find(session[:attendee_id]).name %>'s) Plan #<%= plan.id %> for Show #<%= plan.show.id %> at <%= plan.location.name %> of
         <%= plan.show.artist.name %> on <%= plan.show.stage.name %> Stage at
         <%= plan.show.date_time.strftime("%B %e, %l:%M %p") %> ---> <%= link_to "Cancel Plan", plan_path(plan), method: :delete %> | <%= link_to "Change Plan", plan_path(plan), method: :get %><br></li>
     </ul>

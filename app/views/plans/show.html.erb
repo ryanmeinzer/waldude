@@ -122,47 +122,47 @@
     <% if fill_color == "Red"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Red").id}), method: :put, class: "unselected_fill_1" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "Red").id}), method: :put, class: "unselected_fill_1" %>
     <% end %>
     <% if fill_color == "Aqua"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Aqua").id}), method: :put, class: "unselected_fill_2" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "Aqua").id}), method: :put, class: "unselected_fill_2" %>
     <% end %>
     <% if fill_color == "SaddleBrown"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "SaddleBrown").id}), method: :put, class: "unselected_fill_3" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "SaddleBrown").id}), method: :put, class: "unselected_fill_3" %>
     <% end %>
     <% if fill_color == "DarkGreen"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkGreen").id}), method: :put, class: "unselected_fill_4" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "DarkGreen").id}), method: :put, class: "unselected_fill_4" %>
     <% end %>
     <% if fill_color == "Yellow"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Yellow").id}), method: :put, class: "unselected_fill_5" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "Yellow").id}), method: :put, class: "unselected_fill_5" %>
     <% end %>
     <% if fill_color == "Purple"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "Purple").id}), method: :put, class: "unselected_fill_6" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "Purple").id}), method: :put, class: "unselected_fill_6" %>
     <% end %>
     <% if fill_color == "DarkBlue"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkBlue").id}), method: :put, class: "unselected_fill_7" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "DarkBlue").id}), method: :put, class: "unselected_fill_7" %>
     <% end %>
     <% if fill_color == "DeepPink"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DeepPink").id}), method: :put, class: "unselected_fill_8" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "DeepPink").id}), method: :put, class: "unselected_fill_8" %>
     <% end %>
     <% if fill_color == "DarkOrange"  %>
         <%= button_to "", plan_path(@plan), method: :get, class: "selected_fill", disabled: true %>
     <% else %>
-        <%= button_to "", plan_path(:plan => {attendee_id: Attendee.last.id, show_id: @plan.show.id, location_id: Location.find_by(color: "DarkOrange").id}), method: :put, class: "unselected_fill_9" %>
+        <%= button_to "", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @plan.show.id, location_id: Location.find_by(color: "DarkOrange").id}), method: :put, class: "unselected_fill_9" %>
     <% end %>
 </div> <br>
 

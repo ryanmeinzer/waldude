@@ -95,7 +95,15 @@
         cursor: cell;
     }
 
-    <% fill_1_opacity = @show.locations.where(color: "Red").count * 0.1 %>
+    <% if @show.locations.where(color: "Red").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "Red").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_1_opacity = @show.locations.where(color: "Red").count * 0.1 %> */
 
     .fill_1 {
         background-color: Red;
@@ -114,7 +122,15 @@
         outline: none;
     }
 
-    <% fill_2_opacity = @show.locations.where(color: "Aqua").count * 0.1 %>
+    <% if @show.locations.where(color: "Aqua").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "Aqua").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_2_opacity = @show.locations.where(color: "Aqua").count * 0.1 %> */
 
     .fill_2 {
     background-color: aqua;
@@ -133,7 +149,15 @@
         outline: none;
     }
 
-    <% fill_3_opacity = @show.locations.where(color: "SaddleBrown").count * 0.1 %>
+    <% if @show.locations.where(color: "SaddleBrown").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "SaddleBrown").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_3_opacity = @show.locations.where(color: "SaddleBrown").count * 0.1 %> */
 
     .fill_3 {
     background-color: SaddleBrown;
@@ -152,7 +176,15 @@
         outline: none;
     }
 
-    <% fill_4_opacity = @show.locations.where(color: "DarkGreen").count * 0.1 %>
+    <% if @show.locations.where(color: "DarkGreen").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "DarkGreen").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_4_opacity = @show.locations.where(color: "DarkGreen").count * 0.1 %> */
 
     .fill_4 {
     background-color: DarkGreen;
@@ -171,7 +203,15 @@
         outline: none;
     }
 
-    <% fill_5_opacity = @show.locations.where(color: "Yellow").count * 0.1 %>
+    <% if @show.locations.where(color: "Yellow").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "Yellow").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_5_opacity = @show.locations.where(color: "Yellow").count * 0.1 %> */
 
     .fill_5 {
     background-color: Yellow;
@@ -190,7 +230,15 @@
         outline: none;
     }
 
-    <% fill_6_opacity = @show.locations.where(color: "Purple").count * 0.1 %>
+    <% if @show.locations.where(color: "Purple").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "Purple").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_6_opacity = @show.locations.where(color: "Purple").count * 0.1 %> */
 
     .fill_6 {
     background-color: Purple;
@@ -209,7 +257,15 @@
         outline: none;
     }
 
-    <% fill_7_opacity = @show.locations.where(color: "DarkBlue").count * 0.1 %>
+    <% if @show.locations.where(color: "DarkBlue").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "DarkBlue").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_7_opacity = @show.locations.where(color: "DarkBlue").count * 0.1 %> */
 
     .fill_7 {
     background-color: DarkBlue;
@@ -228,7 +284,15 @@
         outline: none;
     }
 
-    <% fill_8_opacity = @show.locations.where(color: "DeepPink").count * 0.1 %>
+    <% if @show.locations.where(color: "DeepPink").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "DeepPink").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_8_opacity = @show.locations.where(color: "DeepPink").count * 0.1 %> */
 
     .fill_8 {
     background-color: DeepPink;
@@ -247,7 +311,15 @@
         outline: none;
     }
 
-    <% fill_9_opacity = @show.locations.where(color: "DarkOrange").count * 0.1 %>
+    <% if @show.locations.where(color: "DarkOrange").count >= 9 %>
+        <% fill_1_opacity = 1 %>
+    <% elsif @show.locations.where(color: "DarkOrange").count >= 6 %>
+        <% fill_1_opacity = .66 %>
+    <% else %>
+        <% fill_1_opacity = .33 %>
+    <% end  %>
+
+    /* <% fill_9_opacity = @show.locations.where(color: "DarkOrange").count * 0.1 %> */
 
     .fill_9 {
     background-color: DarkOrange;
@@ -361,7 +433,7 @@
             background-color="transparent">
     </a>
 </p>
-<h1>Find more of your friends by the saturation of each the show's location colors (heatmaps).</h1>
+<h1>Find more of your friends by the saturation of each of the show's location colors (heatmaps).</h1>
 <p align="center"><img src="https://ryanmeinzer.com/s/how-to.png" alt="How To" width="200"
         background-color="transparent"></p>
 <h1>Plan where you'll be so your friends can find you at the show.</h1><br><br>

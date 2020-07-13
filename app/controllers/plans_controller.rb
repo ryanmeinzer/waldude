@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
 
     def index
-        if Attendee.last.plans.count == 0
+        if Attendee.find(session[:attendee_id]).plans.count == 0
             render 'new'
         else
             @plans = Attendee.find(session[:attendee_id]).plans

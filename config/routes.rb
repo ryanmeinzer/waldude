@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'attendees#new', as: 'home'
+  get '/auth/facebook/callback' => 'attendees#create'
   resources :locations
   resources :plans
   resources :attendees

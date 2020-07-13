@@ -11,20 +11,33 @@ class AttendeesController < ApplicationController
     end
 
     def new
-        @attendee = Attendee.new
-    end
-
-    def create
-        @attendee = Attendee.create(attendee_params)
-        if @attendee.valid?
-            redirect_to show_path(Show.first.id)
-        else
-            flash[:errors] = @attendee.errors.full_messages
-            redirect_to new_attendee_path
+        if session[:attendee_id]
+            @attendee = Attendee.find(session[:attendee_id])
+        # else
+        #     @attendee = Attendee.new
         end
     end
 
+    def create
+        # @attendee = Attendee.create(attendee_params)
+        # if @attendee.valid?
+        #     redirect_to show_path(Show.first.id)
+        # else
+        #     flash[:errors] = @attendee.errors.full_messages
+        #     redirect_to new_attendee_path
+        # end
+        @attendee = Attendee.find_or_create_by(uid: auth['uid']) do |a|
+            a.name = auth['info']['name']
+        end
+        session[:attendee_id] = @attendee.id
+        render 'attendees/new'
+    end
+
     private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 
     def attendee_params
         params.require(:attendee).permit(:name)

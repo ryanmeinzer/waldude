@@ -1,4 +1,4 @@
-rails d migration create_Users
+    <!-- <%= button_to('Log in with Facebook!', '/auth/facebook', class: "signup_button") %> -->
 
 - - -
 

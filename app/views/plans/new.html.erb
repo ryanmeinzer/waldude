@@ -12,9 +12,21 @@
 
 <div align="center">
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="210" background-color="transparent">
+<% if session[:attendee_id] %>
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 </div>
 
 <div align="center">
 <h3>Find a show to make a plan yo!</h3>
 </div>
+
+<% else %>
+<p>
+    <a href="/auth/facebook">
+        <img src="https://ryanmeinzer.com/s/facebook-login-button.png" alt="Login with Facebook" width="200"
+            background-color="transparent">
+    </a>
+</p>
+<h1>Find more of your friends by the brightness of the show's location colors.</h1>
+<h1>Plan where you'll be so your friends can find you at the show.</h1><br><br>
+<% end %>

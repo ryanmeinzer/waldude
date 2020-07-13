@@ -47,11 +47,11 @@
 
     <%= f.submit "Create Show" %>
 
-<% end %>
+<% end %> 
 
 <% @shows.each do |show| %>
 <ul>
-    <li>Show #<%= link_to show.id, show_path(show), method: :get %> of <%= show.artist.name  %> on <%= show.stage.name %> Stage at <%= show.date_time.strftime("%B %e, %l:%M %p")%></li>
+    <li><%= link_to "#{show.id} of #{show.artist.name} on #{show.stage.name} Stage at #{show.date_time.strftime("%B %e, %l:%M %p")}", show_path(show), method: :get %></li>
 </ul>
 <% end %>
 

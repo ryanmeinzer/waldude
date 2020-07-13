@@ -51,7 +51,7 @@
 
 <% @shows.each do |show| %>
 <ul>
-    <li><%= link_to "#{show.id} of #{show.artist.name} on #{show.stage.name} Stage at #{show.date_time.strftime("%B %e, %l:%M %p")}", show_path(show), method: :get %></li>
+    <li><%= link_to "Show ##{show.id} of #{show.artist.name} on #{show.stage.name} Stage at #{show.date_time.strftime("%B %e, %l:%M %p")}", show_path(show), method: :get %></li>
 </ul>
 <% end %>
 

@@ -349,7 +349,7 @@
 <% if session[:attendee_id] %>
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 
-    Show #<%= link_to @show.id, show_path(@show), method: :get %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %>
+    Show #<%= @show.id %> of <%= @show.artist.name  %> on <%= @show.stage.name %> Stage at <%= @show.date_time.strftime("%B %e, %l:%M %p") %>
 </div>
 <br>
 

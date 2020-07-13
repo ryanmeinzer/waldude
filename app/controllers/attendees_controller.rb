@@ -33,6 +33,11 @@ class AttendeesController < ApplicationController
         render 'attendees/new'
     end
 
+    def destroy
+        session.delete :attendee_id
+        redirect_to '/'
+    end
+
     private
 
     def auth

@@ -28,6 +28,7 @@
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="210" background-color="transparent">
 <% if session[:attendee_id] %>
         <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
+        <%= button_to "Logout", logout_path, method: :delete %>
     <% else %>
         <p>
         <a href="/auth/facebook">

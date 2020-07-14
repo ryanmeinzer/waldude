@@ -36,6 +36,12 @@
     <h1>➕ Plan where you'll be so your friends can find you at the show.</h1>
 </div>
 
+<% unless session[:attendee_id] %>
+<div align="center">
+    <img src="https://ryanmeinzer.com/s/home-how-to.png" alt="Home How To" width="200" background-color="transparent">
+</div>
+<% end %>
+
 <div align="center">
     <% if session[:attendee_id] %>
     <%= button_to "Logout", logout_path, method: :delete %>

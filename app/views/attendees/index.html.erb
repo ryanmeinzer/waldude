@@ -22,7 +22,9 @@
 </style>
 
 <div align="center">
+    <a href="/">
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="210" background-color="transparent">
+    </a>
 <% if session[:attendee_id] %>
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 
@@ -34,10 +36,10 @@
         <!-- do nothing -->
     <!-- if attendee has a plan at this show at another location -->
     <% elsif @show.plans.where(attendee_id: session[:attendee_id]).exists? %>
-        <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}, id: @show.plans.find_by(attendee_id: session[:attendee_id]).id), method: :put, class: "selected_fill" %>
+        ➕ <%= link_to "Plan to be here", plan_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}, id: @show.plans.find_by(attendee_id: session[:attendee_id]).id), method: :put, class: "selected_fill" %>
     <!-- if attendee does not have a plan at this show -->
     <% else %>
-        <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
+        ➕ <%= link_to "Plan to be here", plans_path(:plan => {attendee_id: session[:attendee_id], show_id: @show.id, location_id: Location.find(params[:location_id])}), method: :post, class: "selected_fill" %>
     <% end %>
 
 </div>
@@ -61,9 +63,9 @@
 <% end %>
 
 <div align="center">
-    <h1>Find more of your friends by the saturation of each of the show's location colors (heatmaps).</h1>
+    <h1>🔍 Find more of your friends by the saturation of each of the show's location colors (heatmaps).</h1>
     <img src="https://ryanmeinzer.com/s/how-to.png" alt="How To" width="200" background-color="transparent">
-    <h1>Plan where you'll be so your friends can find you at the show.</h1>
+    <h1>➕ Plan where you'll be so your friends can find you at the show.</h1>
 </div>
 
 <div align="center">

@@ -11,7 +11,9 @@
 </style>
 
 <div align="center">
+    <a href="/">
     <img src="http://ryanmeinzer.com/s/waldude-logo.png" alt="Waldude Logo" class="logo" height="210" background-color="transparent">
+    </a>
 <% if session[:attendee_id] %>
     <h2>🔍 <%= link_to "Find", shows_path, method: :get %> or ➕<%= link_to "Plan", plans_path, method: :get %></h2>
 </div>
@@ -65,9 +67,9 @@
 <% end %>
 
 <div align="center">
-    <h1>Find more of your friends by the saturation of each of the show's location colors (heatmaps).</h1>
+    <h1>🔍 Find more of your friends by the saturation of each of the show's location colors (heatmaps).</h1>
     <img src="https://ryanmeinzer.com/s/how-to.png" alt="How To" width="200" background-color="transparent">
-    <h1>Plan where you'll be so your friends can find you at the show.</h1>
+    <h1>➕ Plan where you'll be so your friends can find you at the show.</h1>
 </div>
 
 <div align="center">

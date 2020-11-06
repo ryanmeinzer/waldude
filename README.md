@@ -1,25 +1,23 @@
-# README
+# Waldude
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Waldude is an application to find friends at shows.
 
-Things you may want to cover:
+## Use
 
-* Ruby version
+Go to www.Waldude.com. It's mobile-friendly!
 
-* System dependencies
+Code Repository - https://github.com/ryanmeinzer/waldude-github
 
-* Configuration
+## Features
 
-* Database creation
+🔍 Find more of your friends by the saturation of each of the show's location colors (heatmaps).
 
-* Database initialization
+➕ Plan where you'll be so your friends can find you at the show.
 
-* How to run the test suite
+## Build Log & Future Updates
 
-* Services (job queues, cache servers, search engines, etc.)
+https://trello.com/b/QPqPBKgL/waldude
 
-* Deployment instructions
+## Screenshot
 
-* ...
-# waldude-github
+![Waldude Screenshot](/waldude-app-screenshot.png)

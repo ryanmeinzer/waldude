@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 gem 'omniauth'
-gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
 gem 'faker'

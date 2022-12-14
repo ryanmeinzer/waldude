@@ -18,10 +18,6 @@ Code Repository - https://github.com/ryanmeinzer/waldude-github
 
 https://trello.com/b/QPqPBKgL/waldude
 
-## Screenshot
-
-![Waldude Screenshot](/waldude-app-screenshot.png)
-
 ## Demo Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/P24HjUXEmD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Waldude Demo Video](/waldude-app-screenshot.png)](https://youtu.be/P24HjUXEmD4 "Waldude Demo Video")

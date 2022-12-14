@@ -24,4 +24,4 @@ https://trello.com/b/QPqPBKgL/waldude
 
 ## Demo Video
 
-https://www.youtube.com/watch?v=P24HjUXEmD4&t=4s
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P24HjUXEmD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

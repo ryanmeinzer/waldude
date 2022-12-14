@@ -21,3 +21,7 @@ https://trello.com/b/QPqPBKgL/waldude
 ## Screenshot
 
 ![Waldude Screenshot](/waldude-app-screenshot.png)
+
+## Demo Video
+
+https://www.youtube.com/watch?v=P24HjUXEmD4&t=4s
